@@ -7,10 +7,11 @@ class MethodChannelPay extends PayPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel('mediumExplain/battery');
-
+  String? argument;
   @override
-  Future<String?> makePayment() async {
-    final makePayment = await methodChannel.invokeMethod<String>('getAndroid1');
+  Future<String?> makePayment({String? payTransactionUrl}) async {
+    argument =payTransactionUrl;
+    final makePayment = await methodChannel.invokeMethod<String>('getAndroid1',argument);
     return makePayment;
   }
 }

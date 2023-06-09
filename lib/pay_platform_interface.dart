@@ -3,7 +3,7 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 // import 'digitalkey_method_channel.dart';
 
-abstract class PayPlatform extends PlatformInterface {
+class PayPlatform extends PlatformInterface {
   /// Constructs a PayPlatform.
   PayPlatform() : super(token: _token);
 
@@ -24,7 +24,7 @@ abstract class PayPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<dynamic> makePayment() {
+  Future<dynamic> makePayment({String? payTransactionUrl}) {
     throw UnimplementedError('Unable to pay');
   }
 }

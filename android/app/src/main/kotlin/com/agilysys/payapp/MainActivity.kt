@@ -12,7 +12,6 @@ import com.agilysys.payments.controller.PayController
 class MainActivity: FlutterFragmentActivity() {
 
     private val CHANNEL = "mediumExplain/battery"
-
     lateinit var  _result: MethodChannel.Result
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -21,12 +20,12 @@ class MainActivity: FlutterFragmentActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
                 call, result ->
             // This method is invoked on the main thread.
-            // TODO
+            var paymentUrl:String?= call.arguments as String;
             _result = result
             if (call.method == "getAndroid1") {
                 val payController = PayController(this)
                 payController.executePayments("{\n" +
-                        "    \"uri\": \"https://aks-pay-qa.hospitalityrevolution.com/pay-iframe-service/iFrame/tenants/0/62678ea396992f0de7c768ed?apiToken=7a68fb20-a72c-46c3-b31b-a804a48b9fae&submit=Pay&style=https://authorize.rguest.com/AuthorizeStyles/Authorize_Style.css&doVerify=false&version=3&payToken=4b9cbf654c064a73919634385db87f46&transactionType=sale&withToken=true\"\n" +
+                        "    \"uri\": \"$paymentUrl\"\n" +
                         "}")
 
             }

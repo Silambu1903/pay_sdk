@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          PayApp().makePayment();
+          PayApp().makePayment(payTransactionUrl: "https://aks-pay-qa.hospitalityrevolution.com/pay-iframe-service/iFrame/tenants/0/62678ea396992f0de7c768ed?apiToken=faa69e40-acf4-4da4-a106-bc6d0d0781cb&submit=Pay&style=https://authorize.rguest.com/AuthorizeStyles/Authorize_Style.css&doVerify=false&version=3&payToken=17631da70d2e4a0da98b6208f581d7d2&transactionType=sale&withToken=true");
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
